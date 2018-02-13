@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>JavaScript Basics II</title>
+          <meta name="description" content="This is an assignment for Coding Dojo Online.">
+          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     </head>
+     <body>
+          <h1>Assignment: JavaScript Basics II</h1>
+          <p>In this assignment, complete the function magic_multiply and ensure it passes all the test inputs and matches their results. Modify magic_multiply until all the tests pass. Do not create a new magic_multiply for each test!</p>
+          <hr>
+          <h2>Test 1</h2>
+          <p>let test1 = magic_multiply(5, 2);</p>
+          <p>console.log(test1);</p>
+          <h2>Test 2</h2>
+          <p>let test2 = magic_multiply(0, 0);</p>
+          <p>console.log(test2);</p>
+          <h2>Test 3</h2>
+          <p>let test3 = magic_multiply([1, 2, 3], 2);</p>
+          <p>console.log(test3);</p>
+          <h2>Test 4</h2>
+          <p>let test4 = magic_multiply(7, "three");</p>
+          <p>console.log(test4);</p>
+          <h2>Test 5</h2>
+          <p>let test5 = magic_multiply("Brendo", 4);</p>
+          <p>console.log(test5);</p>
+     <script>
+          function magic_multiply(x, y){
+               if(isNaN(x) || isNaN(y)){
+                    newX = parseInt(x);
+                    newY = parseInt(y);
+                    product = newX * newY;
+               }
+               if(Number.isInteger(x) && Number.isInteger(y)){
+                    product = x * y
+               }
+               if(Array.isArray(x) && Number.isInteger(y)){
+                    product = []
+                    for(var xIndex=0; xIndex<x.length; xIndex++){
+                         product.push(x[xIndex] * y);
+                    }
+               }
+               if(Number.isInteger(x) && Array.isArray(y)){
+                    product = []
+                    for(var yIndex=0; yIndex<x.length; yIndex++){
+                         product.push(x * y[yIndex]);
+                    }
+               }
+               return product;
+          }
+
+          console.log("Test #1: " + magic_multiply(5, 2));
+          console.log("Test #2: " + magic_multiply(0, 0));
+          console.log("Test #3: " + magic_multiply([1, 2, 3], 2));
+          console.log("Test #3: " + magic_multiply(7, "three"));
+          console.log("Test #3: " + magic_multiply("Brendo", 4));
+     </script>
+     </body>
+</html>

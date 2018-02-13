@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>JS Intermediate</title>
+          <meta name="description" content="This is an assignment for Coding Dojo Online.">
+          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     </head>
+     <body>
+          <h1>JS Intermediate</h1>
+          <hr>
+          <h2>Part 1</h2>
+          <p>Create a function called starString() that takes a number and returns a string of that many *.</p>
+          <hr>
+          <h2>Part 2</h2>
+          <p>Create a function called drawStars() that takes an array of numbers and prints out *.</p>
+          <hr>
+          <h2>Part 3</h2>
+          <p>Modify the function above. Allow an array containing integers and strings to be passed to the drawStars() function. When a string is passed, instead of displaying *, display the first letter of the string according to the example below. You may use the .toLowerCase() string method for this part.</p>
+     </body>
+     <script>
+
+          function starString(passedNumber){
+               var stringOfStars = "";
+               for(var index = passedNumber; index > 0; index--){
+                    stringOfStars += "*";
+               }
+               return stringOfStars;
+          }
+          console.log("Test for Part 1: " + starString(10));
+
+          function drawStars(passedArray){
+               var stringOfStars = "";
+               for(var arrayIndex = 0; arrayIndex < passedArray.length; arrayIndex++){
+                    if(Number.isInteger(passedArray[arrayIndex])){
+                         stringOfStars += "\n" + starString(passedArray[arrayIndex]);
+                    }
+                    else{
+                         stringOfStars += "\n";
+                         for(var stringIndex = 0; stringIndex < passedArray[arrayIndex].length; stringIndex++){
+                              stringOfStars += passedArray[arrayIndex][0];
+                         }
+                    }
+               }
+               return stringOfStars;
+          }
+          console.log("Test for Part 2: " + drawStars([4, 6, 1, 3, 5, 7, 25]));
+          console.log("Test for Part 3: " + drawStars([4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"]));
+
+     </script>
+</html>

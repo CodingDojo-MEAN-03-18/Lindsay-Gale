@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8">
+     <title>JavaScript Math</title>
+     <meta name="description" content="This is an assignment for Coding Dojo Online.">
+     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+     <h1>Assignment: JavaScript Math</h1>
+     <p>Complete the below challenges using JavaScript's Math object.</p>
+     <h2>Math 1</h2>
+     <p>Write a function called zero_negativity(). This function should take an array. Return true if the input array contains no negative numbers, return false if it does.</p>
+     <h2>Math 2</h2>
+     <p>Write a function called is_even(). This function should take an number. Return true if the input number is even, return false if the number is odd.</p>
+     <h2>Math 3</h2>
+     <p>Write a function called how_many_even(). This function should take an array. Return the total number of elements in the array that are even. You may call is_even() to solve this.</p>
+     <h2>Math 4</h2>
+     <p>Write a function called create_dummy_array(). This function should take a number n. Return an array of random numbers between 0 and 9 with the length of n.</p>
+     <h2>Math 5</h2>
+     <p>Write a function called random_choice(). This function should take an array. Return a random element of the array, based on its length. This function should never return undefined.</p>
+</body>
+<script>
+
+     function zero_negativity(passedArray){
+          noNegative = true;
+          for(let index=0; index<passedArray.length; index++){
+               if(passedArray[index]>=0){
+                    noNegative = true;
+               }
+               else{
+                    noNegative = false;
+               }
+          }
+          return noNegative;
+     }
+     console.log("Test #1 (true): " + zero_negativity([1,2,3]))
+     console.log("Test #2 (false): " + zero_negativity([1,-2,3]))
+
+     function is_even(passedNumber){
+          isEven = true;
+          if(passedNumber % 2 == 0){
+               isEven = true;
+          }
+          else{
+               isEven = false;
+          }
+          return isEven;
+     }
+     console.log("Test #3 (true): " + is_even(4));
+     console.log("Test #4 (false): " + is_even(5));
+
+     function how_many_even(passedArray){
+          numberofEvens = 0
+          for(let index=0; index<passedArray.length; index++){
+               if(is_even(passedArray[index])){
+                    numberofEvens++;
+               }
+          }
+          return numberofEvens;
+     }
+     console.log("Test #5 (2): " + how_many_even([2,3,4]));
+     console.log("Test #6 (0): " + how_many_even([1,3,5,7]));
+
+     function create_dummy_array(nums){
+          randomArray = []
+          for(let n=0; n<nums; n++){
+               newRandom = Math.floor((Math.random() * 10));
+               randomArray.push(newRandom);
+          }
+     }
+
+     function random_choice(passedArray){
+          getRandom = Math.floor((Math.random() * passedArray.length));
+          return passedArray[getRandom]
+     }
+
+
+</script>
+</html>

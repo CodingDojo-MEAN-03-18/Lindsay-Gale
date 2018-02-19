@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>JavaScript Hoisting</title>
+     </head>
+     <body>
+
+          <h1>Assignment: JavaScript Hoisting</h1>
+          <p>Predict the output of the following snippets. Do not plug these into the interpreter.</p>
+          <p>#1 = undefined</p>
+          <p>#2 = magnet</p>
+          <p>#3 = super cool</p>
+          <p>#4 = chicken; half-chicken</p>
+          <p>#5 = chicken; chicken; undefined; undefined</p>
+          <p>#6 = undefined; rock; r and b; disco </p>
+          <p>#7 = san jose; seattle; seattle; san jose</p>
+
+     </body>
+     <script>
+
+          // #1
+          console.log(hello);
+          var hello = 'world';
+
+          // #2
+          var needle = 'haystack';
+          test();
+
+          function test(){
+               var needle = 'magnet';
+               console.log(needle);
+          }
+
+          // #3
+          var brendan = 'super cool';
+          function print(){
+               brendan = 'only okay';
+               console.log(brendan);
+          }
+          console.log(brendan);
+
+          // #4
+          var food = 'chicken';
+          console.log(food);
+          eat();
+          function eat(){
+          	food = 'half-chicken';
+          	console.log(food);
+          	var food = 'gone';
+          }
+
+          // #5
+          // mean();
+          console.log(food);
+          var mean = function() {
+          	food = "chicken";
+          	console.log(food);
+          	var food = "fish";
+          	console.log(food);
+          }
+          console.log(food);
+
+          // #6
+          console.log(genre);
+          var genre = "disco";
+          rewind();
+          function rewind() {
+          	genre = "rock";
+          	console.log(genre);
+          	var genre = "r&b";
+          	console.log(genre);
+          }
+          console.log(genre);
+
+          // #7
+          dojo = "san jose";
+          console.log(dojo);
+          learn();
+          function learn() {
+          	dojo = "seattle";
+          	console.log(dojo);
+          	var dojo = "burbank";
+          	console.log(dojo);
+          }
+          console.log(dojo);
+
+
+     </script>
+</html>

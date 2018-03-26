@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Hunting Github</title>
+          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+          <script>
+
+          $(document).ready(function(){
+
+               $('.theButton').on('click', function(){
+
+                    $.get("https://api.github.com/users/miss-gale", displayName)
+
+                    function displayName(data) {
+
+                         var name = data.name;
+                         var login = data.login;
+
+                         console.log("Name: " + name);
+                         console.log("Login: " + login);
+
+                         var detailsHTML = `<fieldset>
+                              <p>Name: ${name}<p>
+                              <p>Login: ${login}</p>
+                         </fieldset>`
+
+                         $('.theBottomDiv').html(detailsHTML);
+
+                    }
+               })
+          })
+
+
+          </script>
+
+     </head>
+     <body>
+
+          <div class="theTopDiv">
+               <h1>Assignment: Hunting Github</h1>
+               <p>Your objective is to create a button that when clicked will send an API request to the GitHub API (see above) and will display your name in a tag below the button.</p>
+               <hr>
+               <h2>Click the button to reveal the details:</h2>
+               <button type="submit" class="theButton">Click Here!</button>
+          </div>
+          <hr>
+          <h2></h2>
+          <div class="theBottomDiv">
+               <p>The details will appear right here.</p>
+          </div>
+
+     </body>
+</html>

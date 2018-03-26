@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Fib + Nacci</title>
+     </head>
+     <body>
+          <h1>Assignment: Fib + Nacci</h1>
+          <p>The Fibonacci sequence is a sequence where each number is the sum of its two predecessors. The sequence starts off like so: (0), 1, 1, 2, 3, 5, 8, etc. The 0 is in parenthesis because it helps the sequence get started but it is not actually part of the sequence.</p>
+     </body>
+     <script>
+          function fib() {
+
+               var current = 0;
+               var previous = 0;
+               var count = "";
+
+               function nacci() {
+                    if(current == 0 & previous == 0){
+                         count = 1;
+                         console.log(count);
+                         previous = 0;
+                         current = 1;
+                    }
+                    else{
+                         count = current + previous;
+                         console.log(count);
+                         previous = current;
+                         current = count;
+                    }
+               }
+               return nacci
+          }
+
+          var fibCounter = fib();
+
+          fibCounter()
+          fibCounter()
+          fibCounter()
+          fibCounter()
+          fibCounter()
+          fibCounter()
+
+     </script>
+</html>

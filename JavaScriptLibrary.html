@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>JavaScript Library</title>
+     </head>
+     <body>
+          <h1>Assignment: JavaScript Library</h1>
+          <p>Finish the five methods attached to the _ object to create your own custom library.</p>
+          <p>The purpose of this assignment is to show how a simple JavaScript library can be made.</p>
+     </body>
+     <script type="text/javascript">
+          var _ = {
+             map: function(passedArray, callback) {
+                  result = [];
+                  for(var i=0; i < passedArray.length; i++) {
+                       result.push(callback(passedArray[i], i, passedArray));
+                  }
+                  return result;
+             },
+
+             reduce: function(passedArray, callback, memo, context) {
+                  memo = passedArray[0];
+                  for(var i=0; i < passedArray.length; i++) {
+                       memo = callback(memo, passedArray[i], i, context)
+                  }
+                  return memo;
+             },
+
+             find: function(passedArray, predicate) {
+                  result = "";
+                  for(var i=0; i < passedArray.length; i++) {
+                       if(predicate(passedArray[i])){
+                            return(passedArray[i]);
+                       }
+                  }
+             },
+
+             filter: function(passedArray, predicate) {
+                  result = [];
+                  for(var i=0; i < passedArray.length; i++) {
+                       if(predicate(passedArray[i])){
+                            result.push(passedArray[i]);
+                       }
+                  }
+                  return result;
+             },
+
+             reject: function(passedArray, predicate) {
+                  result = [];
+                  for(var i=0; i < passedArray.length; i++) {
+                       if(! predicate(passedArray[i])){
+                            result.push(passedArray[i]);
+                       }
+                  }
+                  return result;
+             }
+        };
+
+        // .map test
+        console.log("Test for .map \n Original: [2, 4, 6] \n Expected: [6, 12, 18]");
+        console.log(_.map([2, 4, 6], function(num){ return num * 3; }));
+
+        // .reduce test
+        console.log("Test for .reduce \n Original: [2, 4, 6] \n Expected: 14");
+        console.log(_.reduce([2, 4, 6], function(memo, num){return memo + num}, 0));
+
+        // .find test
+        console.log("Test for .find \n Original: [2, 4, 6] \n Expected: 6");
+        console.log(_.find([2, 4, 6], function(num){ return num % 3 == 0; }));
+
+        // .filter test
+        console.log("Test for .filter \n Original: [1, 2, 3, 4, 5, 6] \n Expected: [3, 6]");
+        console.log(_.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 3 == 0 }));
+
+        // . reject test
+        console.log("Test for .reject \n Original: [1, 2, 3, 4, 5, 6] \n Expected: [1, 2, 4, 5]");
+        console.log(_.reject([1, 2, 3, 4, 5, 6], function(num){ return num % 3 == 0 }));
+
+     </script>
+</html>

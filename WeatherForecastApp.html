@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Make Your Own Weather Forecast App</title>
+    <link rel="stylesheet" type="text/css" href="WeatherForecastApp.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+    $(document).ready(function(){
+
+         $('form').submit(function() {
+
+              var baseURL = "http://api.openweathermap.org/data/2.5/weather?q=";
+              var APIkey = "&&appid=6924e13392c4e7eff53ab452bd54afe0";
+              var city = $('input[name="cityName"]').val();
+              var dynamicURL = baseURL + city + APIkey;
+
+              if (city instanceof String){
+                   var HTMLstring = "That is not a valid city.  Please try again!"
+                   $('.message').html(HTMLstring);
+              }
+
+              else {
+                   $.get(dynamicURL, function(response) {
+                        var cityName = response.name;
+                        var weatherDesc = response.weather[0].description;
+                        var temperature = (Math.floor(response.main.temp))/10 + "&deg Fahrenheit";
+                        $('body').append("<div><h2>" + cityName + "</h2><p>" + weatherDesc + "</p><p>" + temperature + "</p></div>");
+                   }, 'json');
+              }
+
+              return false;
+         });
+    });
+
+    </script>
+</head>
+<body>
+
+     <h1>Make Your Own Weather Forecast</h1>
+     <h4>Enter a city and we will tell you the weather!</h4>
+     <form>
+          <input type="text" name="cityName" placeholder="Enter a city...">
+          <button id="submit" type="submit">Search Weather</button>
+     </form>
+
+</body>
+</html>

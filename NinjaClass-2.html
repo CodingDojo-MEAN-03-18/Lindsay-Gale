@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Ninja Class II</title>
+     </head>
+     <body>
+          <h1>Assignment: Ninja Class II</h1>
+          <h3>Create a new class called Ninja with the following attributes:</h3>
+          <ul>
+               <li>name</li>
+               <li>health</li>
+               <li>speed (private)</li>
+               <li>strength (private)</li>
+               <li>Speed and strength should be 3 by default. Health should be 100 by default.</li>
+          </ul>
+          <h3>The Ninja class should have the following methods:</h3>
+          <ul>
+               <li>sayName() - This should log that Ninja's name to the console.</li>
+               <li>showStats() - This should show the Ninja's Strength and Speed, as well as their health.</li>
+               <li>drinkSake() - This should add +10 Health to the Ninja.</li>
+               <li>punch() - Add a new method to your Ninja class called .punch(). This method will take another Ninja instance and subtract 5 Health from the Ninja we passed in.</li>
+               <li>kick() - Kick will subtract 15 Health for each point of Strength the calling Ninja has, and like .punch() will take another Ninja instance.</li>
+          </ul>
+     </body>
+     <script type="text/javascript">
+
+          function Ninja(name){
+               this.name = name;
+               this.health = 100;
+               const speed = 3;
+               const strength = 3;
+
+               this.showStats = function(){
+                    console.log("Strength: " + strength + "\nSpeed: " + speed + "\nHealth: " + this.health);
+               }
+
+               Ninja.prototype.sayName = function(){
+                    console.log("My name is: " + this.name);
+               }
+
+               Ninja.prototype.drinkSake = function(){
+                    this.health += 10;
+                    console.log("Current Health: " + this.health);
+               }
+
+               Ninja.prototype.punch = function(punchedNinja){
+                    if(punchedNinja.constructor.name != "Ninja"){
+                         console.log("Punching is for Ninjas only!");
+                         return;
+                    }
+                    else{
+                         punchedNinja.health -= 5;
+                         console.log(punchedNinja.name + " was punched by " + this.name + " and lost 5 Health!");
+                         console.log("Current Health for " + punchedNinja.name + ": " + punchedNinja.health);
+                    }
+               }
+
+               Ninja.prototype.kick = function(kickedNinja) {
+                    if(kickedNinja.constructor.name != "Ninja"){
+                         console.log("Kicking is for Ninjas only!");
+                         return;
+                    }
+                    else {
+                         kickedNinja.health -= 15;
+                         console.log(kickedNinja.name + " was kicked by " + this.name + " and lost 15 Health!");
+                         console.log("Current Health for " + kickedNinja.name + ": " + kickedNinja.health);
+                    }
+               };
+
+          }
+
+          const ninja1 = new Ninja("Tom");
+          const ninja2 = new Ninja("Fancy")
+          ninja1.sayName();
+          ninja1.showStats();
+          ninja1.drinkSake();
+          ninja2.punch(ninja1);
+          ninja1.kick(ninja2);
+
+     </script>
+</html>

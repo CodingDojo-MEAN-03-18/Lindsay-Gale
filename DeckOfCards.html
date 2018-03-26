@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Deck of Cards</title>
+     </head>
+     <body>
+          <h1>Assignment: Deck of Cards</h1>
+          <h3>Create a Deck class. A deck should have the following functionality:</h3>
+          <ul>
+               <li>The Deck should contain the 52 standard cards</li>
+               <li>The Deck should be able to shuffle</li>
+               <li>The Deck should be able to reset</li>
+               <li>The Deck should be able to deal a random card</li>
+               <li>Deal should return the card that was dealt and remove it from the deck</li>
+          </ul>
+          <h3>Now create a Player class. A Player should have the following functionality:</h3>
+          <ul>
+               <li>The Player should have a name</li>
+               <li>The Player should have a hand</li>
+               <li>The Player should be able to take a card (use the deck.deal method)</li>
+               <li>The Player should be able to discard a card</li>
+          </ul>
+     </body>
+     <script type="text/javascript">
+
+          class Deck{
+
+               constructor(){
+                    this.setDeck();
+               }
+
+               setDeck(){
+                    this.deck = [];
+                    for (let i=1; i < 53; i++){
+                         this.deck.push(i);
+                    }
+               }
+
+               deal(){
+                    if (this.deck.length == 0){
+                         return 0;
+                    }
+                    let index = (Math.floor(Math.random()*this.deck.length));
+                    return (this.deck.splice(index, 1)[0]);
+               }
+
+               shuffle(){
+                    let shuffled = [];
+                    let card;
+                    while (card = this.deal()){
+                         shuffled.push(card);
+                    }
+                    this.deck = shuffled;
+               }
+
+          }
+
+          class Player{
+
+               constructor(name){
+                    this.name = name;
+                    this.hand = [];
+               }
+
+               pickCard(deck){
+                    let card = deck.deal();
+                    if (card == 0){
+                         console.log("That's it!  All done picking cards.");
+                    }
+                    else{
+                         this.hand.splice(card, 1);
+                    }
+               }
+
+               discard(card=0){
+                    if (card >= this.hand.length){
+                         console.log("Ooops! No more cards left to discard.")
+                    }
+                    else{
+                         this.hand.splice(card, 1);
+                    }
+               }
+
+               revealHand(){
+                    console.log(this.name + "'s current hand: ", this.hand);
+               }
+
+          }
+
+          var currentDeck = new Deck();
+          currentDeck.setDeck();
+          currentDeck.shuffle();
+
+          var player1 = new Player("Anna");
+          var player2 = new Player("Benney");
+          var player3 = new Player("Carlita");
+
+          for (i=0; i<5; i++){
+               player1.pickCard(currentDeck);
+               player2.pickCard(currentDeck);
+               player3.pickCard(currentDeck);
+          }
+
+          player1.revealHand();
+          player2.revealHand();
+          player3.revealHand();
+
+          player1.pickCard(currentDeck);
+          player1.discard();
+          player2.pickCard(currentDeck);
+          player2.discard();
+          player3.pickCard(currentDeck);
+          player3.discard();
+
+     </script>
+</html>

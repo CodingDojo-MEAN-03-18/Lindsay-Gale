@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Survey Form</title>
+     </head>
+     <body>
+          <h1>Survey Form</h1>
+          <h2>Please take a moment to provide the following details:</h2>
+          <form action="/users" method="post">
+               Your Name: <input type="text" name="StudentName" placeholder="Student Name">
+               <p>Dojo Location:
+               <label for="DojoLocation">Berkeley</label>
+               <input type="checkbox" id="Berkeley" name="DojoLocation" value="Berkeley">
+               <label for="DojoLocation">Chicago</label>
+               <input type="checkbox" id="Chicago" name="DojoLocation" value="Chicago">
+               <label for="DojoLocation">Dallas</label>
+               <input type="checkbox" id="Dallas" name="DojoLocation" value="Dallas">
+               <label for="DojoLocation">Los Angeles</label>
+               <input type="checkbox" id="Los Angeles" name="DojoLocation" value="Los Angeles">
+               <label for="DojoLocation">Seattle</label>
+               <input type="checkbox" id="Seattle" name="DojoLocation" value="Seattle">
+               <label for="DojoLocation">Washington D.C.</label>
+               <input type="checkbox" id="Washington D.C." name="DojoLocation" value="Washington D.C.">
+               </p>
+               <p>Favorite Language:
+               <select name="FavoriteLanguage">
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="JavaScript">Python</option>
+                    <option value="JavaScript">PHP</option>
+                    <option value="JavaScript">.Net</option>
+                    <option value="JavaScript">Ruby on Rails</option>
+                    <option value="JavaScript">C++</option>
+               </select></p>
+               Comment (optional): <input type="text" name="Comment" placeholder="Comment">
+               <input type="submit" value="submit"><br>
+          </form>
+     </body>
+</html>

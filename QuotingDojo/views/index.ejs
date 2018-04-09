@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Quoting Dojo</title>
+     <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+     <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+     <script type ="text/javascript">
+          $(document). ready(function (){
+               // this triggers the connection event in our server!
+               var socket  = io.connect();
+
+               $( '.SubmitQuote').click(function (e){
+                    e.preventDefault();
+                    socket.emit('posting_quote', {
+                         name: $('#Name').val(),
+                         quote: $('#Quote').val()
+                    });
+               });
+
+               socket.on('updated_message', function (data){
+                    $('#quotes').html("You emitted the following information to the server: " + JSON.stringify(data.response));)
+               });
+          })
+     </script>
+</head>
+<body>
+     <div id="quotes"></div>
+     <h1>Quoting Dojo</h1>
+     <h2>Please take a moment to provide the following details:</h2>
+     <form action="/quotes" method="post">
+          Your Name: <input type="text" name="Name" placeholder="Name"><br><br>
+          Your Quote: <textarea name="Quote">Enter text here...</textarea><br><br>
+          <button class="SubmitQuote">  Add my quote!  </button>
+     </form>
+     <form action="/quotes" method="get">
+          <button>  Skip to quotes  </button>
+     </form>
+</body>
+</html>

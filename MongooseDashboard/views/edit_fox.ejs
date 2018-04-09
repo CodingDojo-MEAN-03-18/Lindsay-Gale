@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Edit Fox</title>
+     </head>
+     <body>
+          <h1>Here's the fox you want to update:</h1>
+          <form action="/<%= fox.id %>" method="post">
+               Species: <input type="text" name="species" value="<%= fox.species %>">
+               Native Regions: <input type="text" name="regions" value="<%= fox.regions %>">
+               Fun Fact: <input type="text" name="fact" value="<%= fox.fact %>">
+               <input type="submit" value="Update this fox!!">
+          </form>
+          <a href="/">Main Dashboard</a>
+     </body>
+</html>

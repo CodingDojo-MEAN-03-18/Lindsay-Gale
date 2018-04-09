@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Show Fox</title>
+     </head>
+     <body>
+          <h1>Here's the fox you are looking for:</h1>
+          <h3>Species: <%= fox.species %></h3>
+          <p>Native Regions: <%= fox.regions %></p>
+          <p>Fun Fact: <%= fox.fact %></p>
+          <a href="/">Main Dashboard</a>
+          <a href="/<%= fox._id %>">Edit</a>
+     </body>
+</html>

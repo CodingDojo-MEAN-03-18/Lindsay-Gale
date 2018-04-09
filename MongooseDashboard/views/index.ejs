@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <link href="/css/style.css" rel="stylesheet" type="text/css">
+          <title>Fox Dashboard</title>
+     </head>
+     <body>
+          <h1>Fox Dashboard</h1>
+          <h2>Check out all the awesome foxes!</h2>
+          <a href="/foxes/new">Add a New Fox!</a>
+          <hr>
+          <% for (const fox of foxes) { %>
+               <h3><a href="/<%= fox._id %>"><%= fox.species %></a></h3>
+               <ul>
+                    <li>Native Regions: <%= fox.regions %></li>
+                    <li>Fun Fact: <%= fox.fact %></>
+               </ul>
+               <a href="/<%= fox._id %>/edit/"><button>Edit Fox</button></a>
+               <form action="/<%= fox._id %>/delete/" method="post">
+                    <input type="submit" value="DELETE">
+               </form>
+               <hr>
+          <% } %><br>
+          <a href="/foxes/new">Add a New Fox!</a>
+     </body>
+</html>

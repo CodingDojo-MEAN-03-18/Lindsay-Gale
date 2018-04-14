@@ -1,0 +1,15 @@
+<div>
+  <h1>{{ title }}!</h1>
+</div>
+
+<div class="buttons">
+  <button (click)="setTimeZone(1)" [ngClass]="{selected: lastTimeZoneSelected === 'PST'}">PST</button>
+  <button (click)="setTimeZone(2)" [ngClass]="{selected: lastTimeZoneSelected === 'MST'}">MST</button>
+  <button (click)="setTimeZone(3)" [ngClass]="{selected: lastTimeZoneSelected === 'CST'}">CST</button>
+  <button (click)="setTimeZone(4)" [ngClass]="{selected: lastTimeZoneSelected === 'EST'}">EST</button>
+  <button (click)="setTimeZone(5)" [ngClass]="{selected: lastTimeZoneSelected === 'CLEAR'}">Clear</button>
+</div>
+
+<div>
+  <h3>{{ currentDate | date: 'medium' }} {{ currentTimeZone }}</h3>
+</div>

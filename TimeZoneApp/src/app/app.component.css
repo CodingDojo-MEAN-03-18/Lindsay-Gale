@@ -1,0 +1,10 @@
+button {
+    width: 50px;
+    height: 20px;
+    margin-right: 30px;
+    font-size: .75em;
+    font-weight: bold;
+}
+.selected {
+    background-color: gold;
+}

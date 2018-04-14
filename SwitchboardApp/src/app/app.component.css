@@ -1,0 +1,31 @@
+div.header {
+    text-align: left;
+    margin-left: 30px;
+}
+
+div.button {
+    margin-left: 15px;
+    display: inline;
+    padding: 10px;
+}
+
+section {
+    height: 100px;
+    text-align: center;
+    display: inline-block;
+}
+
+button {
+    width: 60px;
+    height: 40px;
+    font-size: 1.00em;
+    display: inline-block ;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+button.on {
+    background-color: blue;
+    color: white;
+}

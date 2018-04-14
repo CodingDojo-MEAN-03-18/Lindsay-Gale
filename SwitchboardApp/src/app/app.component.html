@@ -1,0 +1,18 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="header">
+  <h1>
+    {{ title }}!
+  </h1>
+</div>
+<section>
+  <div class="button" *ngFor="let button of buttons; let idx = index">
+    <button
+      *ngIf="button"
+      [ngClass]="{'on':button}"
+      (click)="updateStatus(idx)">ON</button>
+    <button
+      *ngIf="!button"
+      [ngClass]="{'on':button}"
+      (click)="updateStatus(idx)">OFF</button>
+  </div>
+</section>

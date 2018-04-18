@@ -4,11 +4,11 @@
 
 input{
     width: 200px;
-    margin-bottom: 10px;
 }
 
-select{
-    margin-bottom: 10px;
+#errors{
+    color: brown;
+    font-size: 75%;
 }
 
 #registrationButton{

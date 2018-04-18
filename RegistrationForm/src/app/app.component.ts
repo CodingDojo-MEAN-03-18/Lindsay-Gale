@@ -1,5 +1,7 @@
 
 import { Component } from '@angular/core';
+import { User } from './user';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,33 +11,14 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'Registration Form';
-  user = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    address1: '',
-    address2: '',
-    city: '',
-    state: '',
-    feelsLucky: ''
-  };
-  users = [];
+  user: User = new User();
+  users: Array<User> = [];
 
-  onSubmit() {
+  onSubmit(event: Event, form: NgForm) {
+    event.preventDefault();
+    console.log('Registration form has been submitted!', this.user);
     this.users.push(this.user);
-    this.user = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      address1: '',
-      address2: '',
-      city: '',
-      state: '',
-      feelsLucky: ''
-    };
+    this.user = new User();
+    form.reset();
   }
 }

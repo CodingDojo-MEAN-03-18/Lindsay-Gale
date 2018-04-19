@@ -1,7 +1,13 @@
-{{ title }}!
+<div class="App">
+  <h2>{{ title }}</h2>
 
-<app-alpha-component>{{ alphaTitle }}</app-alpha-component>
-
-<app-beta-component>{{ betaTitle }}</app-beta-component>
-
-<app-gamma-component>{{ gammaTitle }}</app-gamma-component>
+  <div class="alpha">
+    <app-alpha-component>{{ alphaTitle }}</app-alpha-component>
+  </div>
+  <div class="beta">
+    <app-beta-component>{{ betaTitle }}</app-beta-component>
+    <div class="gamma">
+      <app-gamma-component>{{ gammaTitle }}</app-gamma-component>
+    </div>
+  </div>
+</div>

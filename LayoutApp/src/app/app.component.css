@@ -1,0 +1,26 @@
+.App {
+    width: 800px;
+    height: 450px;
+    border: solid black;
+}
+.alpha {
+    width: 350px;
+    height: 300px;
+    border: solid black;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+}
+.beta {
+    width: 350px;
+    height: 300px;
+    border: solid black;
+    display: inline-block;
+    margin-left: 20px;
+}
+.gamma {
+    width: 250px;
+    height: 200px;
+    border: solid black;
+    margin-left: 20px;
+}

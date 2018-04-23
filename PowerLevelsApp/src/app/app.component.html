@@ -1,0 +1,38 @@
+<div class="Parent">
+  <h1>{{ title }}</h1>
+  <form class="PowerForm" (submit)="newPowerSubmit(powerLevel)" #powerForm='ngForm'>
+    <label>Initial Power Level: </label>
+    <select>
+      <option name="powerLevel" value=10>10</option>
+      <option name="powerLevel" value=20>20</option>
+      <option name="powerLevel" value=30>30</option>
+      <option name="powerLevel" value=40>40</option>
+      <option name="powerLevel" value=50>50</option>
+      <option name="powerLevel" value=60>60</option>
+      <option name="powerLevel" value=70>70</option>
+      <option name="powerLevel" value=80>80</option>
+      <option name="powerLevel" value=90>90</option>
+      <option name="powerLevel" value=100>100</option>
+    </select>
+    <button type="submit">Calculate Powers!</button>
+  </form>
+
+  <div class="Child">
+    <app-human [humanMultiplier]="1"></app-human>
+  </div>
+  <div class="Child">
+    <app-saiyan [saiyanMultiplier]="10"></app-saiyan>
+  </div>
+  <div class="Child">
+    <app-super-saiyan [superSaiyanMultiplier]="90"></app-super-saiyan>
+  </div>
+  <div class="Child">
+    <app-super-saiyan-two [superSaiyanTwoMultiplier]="150"></app-super-saiyan-two>
+  </div>
+  <div class="Child">
+    <app-super-saiyan-three [superSaiyanThreeMultiplier]="250"></app-super-saiyan-three>
+  </div>
+  <div class="Child">
+    <app-super-saiyan-four [superSaiyanFourMultiplier]="500"></app-super-saiyan-four>
+  </div>
+</div>

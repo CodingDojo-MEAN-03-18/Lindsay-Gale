@@ -1,0 +1,22 @@
+button {
+    background-color: gold;
+    color: white;
+}
+
+.PowerForm {
+    margin-bottom: 15px;
+}
+
+.Parent {
+    width: 700px;
+    height: 600px;
+}
+
+.Child {
+    width: 200px;
+    height: 210px;
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

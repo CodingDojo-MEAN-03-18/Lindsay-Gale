@@ -1,0 +1,9 @@
+img {
+    height: 100px;
+}
+
+legend {
+    color: blue;
+    font-style: oblique;
+    font-size: 110%;
+}

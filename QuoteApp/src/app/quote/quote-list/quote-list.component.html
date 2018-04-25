@@ -1,0 +1,25 @@
+<app-quote-new (createQuote)="onCreate($event)">
+</app-quote-new>
+
+<section>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Quote</th>
+        <th>Author</th>
+        <th>Rating</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let quote of quotes" (click)="selectQuote(quote)">
+        <td>{{ quote.id }}</td>
+        <td>{{ quote.quote }}</td>
+        <td>{{ quote.author }}</td>
+        <td>{{ quote.rating }}</td>
+        <td>Future Actions</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

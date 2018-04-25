@@ -1,0 +1,35 @@
+<div class="addQuoteForm">
+  <fieldset>
+    <legend>Add a Quote:</legend>
+    <form (submit)="onSubmit(quoteForm)" #quoteForm='ngForm'>
+      <div>
+        <label for="quote">Quote</label>
+        <input type="text" name="quote" [(ngModel)]="quote.quote" #title="ngModel" required minlength="3">
+        <div *ngIf="(quote.touched) && quote.errors">
+          <div id="errors" *ngIf="quote.errors.required">
+            You must enter a quote.
+          </div>
+          <div id="errors" *ngIf="quote.errors.minlength">
+            The quote must be more than {{ quote.errors.minlength.requiredLength }} characters. {{ quote.errors.minlength.actualLength
+            }} is not enough.
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="author">Author</label>
+        <input type="text" name="author" [(ngModel)]="quote.author" #author="ngModel" required minlength="3">
+        <div *ngIf="(author.touched) && author.errors">
+          <div id="errors" *ngIf="author.errors.required">
+            You must enter an author.
+          </div>
+          <div id="errors" *ngIf="author.errors.minlength">
+            The author's name must be more than {{ author.errors.minlength.requiredLength }} characters. {{ author.errors.minlength.actualLength
+            }} is not enough.
+          </div>
+        </div>
+      </div>
+      <hr>
+      <button [disabled]=quoteForm.invalid>Submit</button>
+    </form>
+  </fieldset>
+</div>
